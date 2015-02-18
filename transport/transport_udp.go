@@ -65,7 +65,7 @@ func (udp *Udp) listen(conn *net.UDPConn) {
 
 	buffer := make([]byte, c_BUFSIZE)
 	for {
-		num, _, err := conn.ReadFromUDP(buffer)
+		num, addr, err := conn.ReadFromUDP(buffer)
 		if err != nil {
 			if udp.stop {
 				log.Info("Stopped listening for UDP on %s", conn.LocalAddr)
@@ -82,6 +82,7 @@ func (udp *Udp) listen(conn *net.UDPConn) {
 			if err != nil {
 				log.Warn("Failed to parse SIP message: %s", err.Error())
 			} else {
+				msg.SetNetAddr(addr)
 				udp.output <- msg
 			}
 		}()

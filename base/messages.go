@@ -3,6 +3,7 @@ package base
 import (
 	"bytes"
 	"fmt"
+	"net"
 	"strings"
 )
 
@@ -62,6 +63,12 @@ type SipMessage interface {
 
 	// Set the body of the message.
 	SetBody(body string)
+
+	// Get the network source address
+	GetNetAddr() net.Addr
+
+	// Set the network source address
+	SetNetAddr(addr net.Addr)
 }
 
 // A shared type for holding headers and their ordering.
@@ -149,6 +156,9 @@ type Request struct {
 
 	// The application data of the message.
 	Body string
+
+	// Network address of the packet (for inbound packets)
+	NetAddr net.Addr
 }
 
 func NewRequest(method Method, recipient Uri, sipVersion string, headers []SipHeader, body string) (request *Request) {
@@ -255,6 +265,14 @@ func (request *Request) SetBody(body string) {
 	request.Body = body
 }
 
+func (request *Request) GetNetAddr() net.Addr {
+	return request.NetAddr
+}
+
+func (request *Request) SetNetAddr(addr net.Addr) {
+	request.NetAddr = addr
+}
+
 // A SIP response object  (c.f. RFC 3261 section 7.2).
 type Response struct {
 	// The version of SIP used in this message, e.g. "SIP/2.0".
@@ -274,6 +292,9 @@ type Response struct {
 
 	// The application data of the message.
 	Body string
+
+	// Network Address
+	NetAddr net.Addr
 }
 
 func NewResponse(sipVersion string, statusCode uint16, reason string, headers []SipHeader, body string) (response *Response) {
@@ -380,4 +401,12 @@ func (response *Response) GetBody() string {
 
 func (response *Response) SetBody(body string) {
 	response.Body = body
+}
+
+func (response *Response) GetNetAddr() net.Addr {
+	return response.NetAddr
+}
+
+func (response *Response) SetNetAddr(addr net.Addr) {
+	response.NetAddr = addr
 }

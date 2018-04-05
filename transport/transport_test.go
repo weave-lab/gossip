@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/weave-lab/gossip/base"
+	"weavelab.xyz/gossip/base"
 )
 
 type endpoint struct {

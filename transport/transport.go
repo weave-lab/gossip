@@ -1,8 +1,8 @@
 package transport
 
 import (
-	"github.com/weave-lab/gossip/base"
-	"github.com/weave-lab/gossip/log"
+	"weavelab.xyz/gossip/base"
+	"weavelab.xyz/gossip/log"
 )
 
 import (

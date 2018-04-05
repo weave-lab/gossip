@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/weave-lab/gossip/base"
-	"github.com/weave-lab/gossip/log"
-	"github.com/weave-lab/gossip/transport"
+	"weavelab.xyz/gossip/base"
+	"weavelab.xyz/gossip/log"
+	"weavelab.xyz/gossip/transport"
 )
 
 var (

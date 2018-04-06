@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/weave-lab/gossip/base"
+	"weavelab.xyz/gossip/base"
 )
 
 // The whitespace characters recognised by the Augmented Backus-Naur Form syntax

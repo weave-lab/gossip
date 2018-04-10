@@ -1,3 +1,13 @@
+[![pipeline status](https://gitlab.getweave.com/weave-lab/comm/gossip/badges/master/pipeline.svg)](https://gitlab.getweave.com/weave-lab/comm/gossip/commits/master)
+[![coverage report](https://gitlab.getweave.com/weave-lab/comm/gossip/badges/master/coverage.svg)](https://gitlab.getweave.com/weave-lab/comm/gossip/commits/master)
+
+## Installation
+```bash
+go get weavelab.xyz/gossip
+```
+
+For more information on `weavelab.xyz`, see the projects [readme](https://gitlab.getweave.com/weave-lab/ops/xyz/blob/master/README.md).
+
 gossip
 ======
 
